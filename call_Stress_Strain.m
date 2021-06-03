@@ -14,6 +14,6 @@ for elno = 1:1:size(Eles,1)
         Ele_Displacement((2*i-1:2*i),:) = Displacement(2*Node-1:2*Node,:);
     end
     Strain(:,elno) = Be * Ele_Displacement;
-    Stress(:,elno) = D * Be * Ele_Displacement;   
+    Stress(:,elno) = D * Be * Ele_Displacement;    
 end
 end

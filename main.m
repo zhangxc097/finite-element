@@ -15,7 +15,7 @@ pause;
 
 %% ------------------------计算刚度矩阵--------------------------------
 %E = input('请输入弹性模量：');miu = input('请输入泊松比：');t = input('请输入材料的厚度：');
-E = 1;miu = 0;t = 1;
+E = 2e11;miu = 0;t = 1;
 K = call_K_total(Nodes, Eles, E, miu, t);
 check_K(K);
 warning off MATLAB:xlswrite:AddSheet
