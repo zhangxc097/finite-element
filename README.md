@@ -1,2 +1,3 @@
-# finite-element
-The simple triangular element is used for finite element calculations
+# 有限元计算
+目前只支持3结点三角形单元的计算
+以“main”为主，调用其他函数，关于其他函数的使用参看函数内部的“函数使用”
