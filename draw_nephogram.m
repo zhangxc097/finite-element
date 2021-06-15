@@ -55,8 +55,10 @@ for i = 1:1:size(Eles,1)
     y_vector = [Iy(i,:), Jy(i,:), My(i,:), Iy(i,:)];
     patch(x_vector, y_vector, color_stress(i,:))
 end
-colorbar;
-title('应力云图','FontSize',20)
+[t, s] = title('应力云图', ...
+    ['最大应力 ',num2str(max(max(stress)))]);
+t.FontSize = 16;s.FontSize = 12;
+s.FontAngle = 'italic';
 hold off
 
 % strain作图
@@ -67,8 +69,10 @@ for i = 1:1:size(Eles,1)
     y_vector = [Iy(i,:), Jy(i,:), My(i,:), Iy(i,:)];
     patch(x_vector, y_vector, color_strain(i,:))
 end
-colorbar;
-title('应变云图','FontSize',20)
+[t, s] = title('应变云图', ...
+    ['最大应变 ',num2str(max(max(strain)))]);
+t.FontSize = 16;s.FontSize = 12;
+s.FontAngle = 'italic';
 hold off
 
 end

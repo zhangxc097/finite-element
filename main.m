@@ -3,19 +3,19 @@
 clc; clear all; close all
 
 %% --------------------------读取数据---------------------------------
-addpath(genpath(pwd)) 
-Nodes = xlsread("information.xlsx", 1);% 结点信息
-Eles = xlsread("information.xlsx", 2); % 单元信息
-Loads = xlsread("information.xlsx", 3); % 外载荷
-DisplacementConstraints = xlsread("information.xlsx", 4); % 位移约束
+X_no = input("请输入横坐标上的结点数：");
+Y_no = input("请输入纵坐标上的结点数：");
+[Eles, Nodes] = get_Inf(X_no,Y_no);
+Loads = xlsread("information.xlsx", 1); % 外载荷
+DisplacementConstraints = xlsread("information.xlsx", 2); % 位移约束
 draw_geometry(Nodes, Eles);
 fprintf('Data imported SUCCESSFULLY ... \n');
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-%% ------------------------计算刚度矩阵--------------------------------
+%% ------------------------计算刚度矩阵-------------------------------
 %E = input('请输入弹性模量：');miu = input('请输入泊松比：');t = input('请输入材料的厚度：');
-E = 2e11;miu = 0;t = 1;
+E = 2e11;miu = 0.1;t = 1;
 K = call_K_total(Nodes, Eles, E, miu, t);
 check_K(K);
 warning off MATLAB:xlswrite:AddSheet
